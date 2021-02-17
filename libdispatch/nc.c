@@ -124,6 +124,11 @@ nc_set_default_format(int format, int *old_formatp)
     if (format == NC_FORMAT_CDF5)
         return NC_ENOTBUILT;
 #endif
+#ifndef USE_ESDM
+  if (format == NC_FORMATX_ESDM){
+    return NC_EINVAL;
+  }
+#endif
 #ifdef USE_HDF5
     if (format != NC_FORMAT_CLASSIC && format != NC_FORMAT_64BIT_OFFSET &&
         format != NC_FORMAT_NETCDF4 && format != NC_FORMAT_NETCDF4_CLASSIC &&

@@ -25,6 +25,7 @@ Extra libraries:	@LIBS@
 
 # Features
 --------
+ESDM Support:		@HAS_ESDM@
 NetCDF-2 API:		@HAS_NC2@
 HDF4 Support:		@HAS_HDF4@
 HDF5 Support:		@HAS_HDF5@

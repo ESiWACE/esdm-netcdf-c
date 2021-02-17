@@ -1766,7 +1766,7 @@ check_create_mode(int mode)
     /* This is a clever check to see if more than one format bit is
      * set. */
     mode_format = (mode & NC_NETCDF4) | (mode & NC_64BIT_OFFSET) |
-        (mode & NC_CDF5);
+        (mode & NC_CDF5) | (mode & NC_ESDM);
     if (mode_format && (mode_format & (mode_format - 1)))
         return NC_EINVAL;
 
@@ -1909,6 +1909,11 @@ NC_create(const char *path0, int cmode, size_t initialsz,
         dispatcher = UDF1_dispatch_table;
         break;
 #endif /* USE_NETCDF4 */
+#ifdef USE_ESDM
+    case NC_FORMATX_ESDM:
+      dispatcher = esdm_dispatch_table;
+      break;
+#endif 
 #ifdef ENABLE_NCZARR
     case NC_FORMATX_NCZARR:
         dispatcher = NCZ_dispatch_table;
@@ -2044,6 +2049,10 @@ NC_open(const char *path0, int omode, int basepe, size_t *chunksizehintp,
 	int udf0built = 0;
 	int udf1built = 0;
 	int nczarrbuilt = 0;
+  int esdmbuilt = 0;
+#ifdef USE_ESDM
+        esdmbuilt = 1;
+#endif
 #ifdef USE_NETCDF4
         hdf5built = 1;
 #ifdef USE_HDF4
@@ -2061,6 +2070,8 @@ NC_open(const char *path0, int omode, int basepe, size_t *chunksizehintp,
         if(UDF1_dispatch_table != NULL)
             udf1built = 1;
 
+        if(!esdmbuilt && model.impl == NC_FORMATX_ESDM)
+        {stat = NC_ENOTBUILT; goto done;}
         if(!hdf5built && model.impl == NC_FORMATX_NC4)
         {stat = NC_ENOTBUILT; goto done;}
         if(!hdf4built && model.impl == NC_FORMATX_NC_HDF4)
@@ -2087,6 +2098,11 @@ NC_open(const char *path0, int omode, int basepe, size_t *chunksizehintp,
             dispatcher = NCD4_dispatch_table;
             break;
 #endif
+#ifdef USE_ESDM
+    case NC_FORMATX_ESDM:
+      dispatcher = esdm_dispatch_table;
+      break;
+#endif 
 #ifdef ENABLE_NCZARR
 	case NC_FORMATX_NCZARR:
 	    dispatcher = NCZ_dispatch_table;

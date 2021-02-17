@@ -97,6 +97,7 @@ build_triplet = @build@
 host_triplet = @host@
 target_triplet = @target@
 @USE_DAP_TRUE@am__append_1 = -I${top_srcdir}/oc2
+@HAVE_AWS_TRUE@am__append_2 = -lstdc++
 check_PROGRAMS = $(am__EXEEXT_1)
 TESTS = $(am__EXEEXT_1)
 subdir = libsrcesdm_test
@@ -947,7 +948,7 @@ AMTAR = @AMTAR@
 AM_CFLAGS = @AM_CFLAGS@
 AM_CPPFLAGS = -I$(top_srcdir)/include $(am__append_1)
 AM_DEFAULT_VERBOSITY = @AM_DEFAULT_VERBOSITY@
-AM_LDFLAGS = ${top_builddir}/liblib/libnetcdf.la
+AM_LDFLAGS = $(am__append_2) ${top_builddir}/liblib/libnetcdf.la
 AR = @AR@
 AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
@@ -962,6 +963,10 @@ CFLAGS = @CFLAGS@
 CONFIG_DATE = @CONFIG_DATE@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
+CXX = @CXX@
+CXXCPP = @CXXCPP@
+CXXDEPMODE = @CXXDEPMODE@
+CXXFLAGS = @CXXFLAGS@
 CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
@@ -972,6 +977,8 @@ DOXYGEN_CSS_FILE = @DOXYGEN_CSS_FILE@
 DOXYGEN_HEADER_FILE = @DOXYGEN_HEADER_FILE@
 DOXYGEN_SEARCHENGINE = @DOXYGEN_SEARCHENGINE@
 DOXYGEN_SERVER_BASED_SEARCH = @DOXYGEN_SERVER_BASED_SEARCH@
+DO_NCZARR_S3_TESTS = @DO_NCZARR_S3_TESTS@
+DO_NCZARR_ZIP_TESTS = @DO_NCZARR_ZIP_TESTS@
 DSYMUTIL = @DSYMUTIL@
 DUMPBIN = @DUMPBIN@
 ECHO_C = @ECHO_C@
@@ -979,6 +986,7 @@ ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 ENABLED_DOC_SECTIONS = @ENABLED_DOC_SECTIONS@
+ENABLE_NCZARR = @ENABLE_NCZARR@
 ENABLE_VALGRIND_drd = @ENABLE_VALGRIND_drd@
 ENABLE_VALGRIND_helgrind = @ENABLE_VALGRIND_helgrind@
 ENABLE_VALGRIND_memcheck = @ENABLE_VALGRIND_memcheck@
@@ -999,8 +1007,10 @@ HAS_HDF5 = @HAS_HDF5@
 HAS_JNA = @HAS_JNA@
 HAS_LOGGING = @HAS_LOGGING@
 HAS_MMAP = @HAS_MMAP@
+HAS_MULTIFILTERS = @HAS_MULTIFILTERS@
 HAS_NC2 = @HAS_NC2@
 HAS_NC4 = @HAS_NC4@
+HAS_NCZARR = @HAS_NCZARR@
 HAS_PARALLEL = @HAS_PARALLEL@
 HAS_PARALLEL4 = @HAS_PARALLEL4@
 HAS_PAR_FILTERS = @HAS_PAR_FILTERS@
@@ -1014,6 +1024,7 @@ INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
 ISCMAKE = @ISCMAKE@
+ISMSVC = @ISMSVC@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBOBJS = @LIBOBJS@
@@ -1024,12 +1035,10 @@ LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 LT_SYS_LIBRARY_PATH = @LT_SYS_LIBRARY_PATH@
 M4FLAGS = @M4FLAGS@
-MAINT = @MAINT@
 MAKEINFO = @MAKEINFO@
 MANIFEST_TOOL = @MANIFEST_TOOL@
 MKDIR_P = @MKDIR_P@
 MPIEXEC = @MPIEXEC@
-MSVC = @MSVC@
 NC_DISPATCH_VERSION = @NC_DISPATCH_VERSION@
 NC_ENABLE_DOXYGEN_PDF_OUTPUT = @NC_ENABLE_DOXYGEN_PDF_OUTPUT@
 NC_HAS_BYTERANGE = @NC_HAS_BYTERANGE@
@@ -1043,8 +1052,10 @@ NC_HAS_HDF4 = @NC_HAS_HDF4@
 NC_HAS_HDF5 = @NC_HAS_HDF5@
 NC_HAS_JNA = @NC_HAS_JNA@
 NC_HAS_MMAP = @NC_HAS_MMAP@
+NC_HAS_MULTIFILTERS = @NC_HAS_MULTIFILTERS@
 NC_HAS_NC2 = @NC_HAS_NC2@
 NC_HAS_NC4 = @NC_HAS_NC4@
+NC_HAS_NCZARR = @NC_HAS_NCZARR@
 NC_HAS_PARALLEL = @NC_HAS_PARALLEL@
 NC_HAS_PARALLEL4 = @NC_HAS_PARALLEL4@
 NC_HAS_PAR_FILTERS = @NC_HAS_PAR_FILTERS@
@@ -1088,6 +1099,7 @@ abs_top_builddir = @abs_top_builddir@
 abs_top_srcdir = @abs_top_srcdir@
 ac_ct_AR = @ac_ct_AR@
 ac_ct_CC = @ac_ct_CC@
+ac_ct_CXX = @ac_ct_CXX@
 ac_ct_DUMPBIN = @ac_ct_DUMPBIN@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
@@ -1184,7 +1196,7 @@ all: all-am
 
 .SUFFIXES:
 .SUFFIXES: .c .lo .log .o .obj .test .test$(EXEEXT) .trs
-$(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am $(top_srcdir)/lib_flags.am $(am__configure_deps)
+$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am $(top_srcdir)/lib_flags.am $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
 	    *$$dep*) \
@@ -1209,9 +1221,9 @@ $(top_srcdir)/lib_flags.am $(am__empty):
 $(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 
-$(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
+$(top_srcdir)/configure:  $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-$(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
+$(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(am__aclocal_m4_deps):
 

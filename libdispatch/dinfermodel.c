@@ -100,6 +100,7 @@ static struct FORMATMODES {
 } formatmodes[] = {
 {"dap2",NC_FORMATX_DAP2,NC_FORMAT_CLASSIC},
 {"dap4",NC_FORMATX_DAP4,NC_FORMAT_NETCDF4},
+{"esdm",NC_FORMATX_ESDM,0},
 {"netcdf-3",NC_FORMATX_NC3,0}, /* Might be e.g. cdf5 */
 {"classic",NC_FORMATX_NC3,0}, /* ditto */
 {"netcdf-4",NC_FORMATX_NC4,NC_FORMAT_NETCDF4},
@@ -134,6 +135,7 @@ static struct Readable {
 {NC_FORMATX_NC_HDF5,1},
 {NC_FORMATX_NC_HDF4,1},
 {NC_FORMATX_PNETCDF,1},
+{NC_FORMATX_ESDM,0},
 {NC_FORMATX_DAP2,0},
 {NC_FORMATX_DAP4,0},
 {NC_FORMATX_UDF0,0},
@@ -598,6 +600,11 @@ NC_omodeinfer(int useparallel, int cmode, NCmodel* model)
     /* If no format flags are set, then use default */
     if(!fIsSet(cmode,NC_FORMAT_ALL))
 	set_default_mode(&cmode);
+    if(fIsSet(cmode, NC_ESDM) || (getenv("NC_ESDM_FORCEESDM") && strcmp(getenv("NC_ESDM_FORCEESDM"), "0") != 0)){
+      model->format = NC_FORMATX_ESDM;
+      model->impl = NC_FORMATX_ESDM;
+      goto done;
+    }
 
     /* Process the cmode; may override some already set flags. The
      * user-defined formats must be checked first. They may choose to
@@ -696,6 +703,12 @@ NC_infermodel(const char* path, int* omodep, int iscreate, int useparallel, void
     NClist* modeargs = nclistnew();
     char* sfrag = NULL;
     const char* modeval = NULL;
+
+    if(strncasecmp(path, "esdm:/", 6) == 0) {
+       model->impl = NC_FORMATX_ESDM;
+            model->format = NC_FORMATX_ESDM;
+       goto done;
+    }
 
     /* Phase 1:
        1. convert special protocols to http|https
@@ -818,6 +831,9 @@ NC_infermodel(const char* path, int* omodep, int iscreate, int useparallel, void
 	if((omode & (NC_NETCDF4|NC_64BIT_OFFSET|NC_64BIT_DATA|NC_CLASSIC_MODEL)) != 0)
 	    {stat = NC_EINVAL; goto done;}
 	break;
+    case NC_FORMATX_ESDM:
+      omode &= ~(NC_ESDM);
+      break;
     default:
 	{stat = NC_ENOTNC; goto done;}
     }

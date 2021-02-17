@@ -58,6 +58,12 @@ NC_TEST4 = nc_test4
 endif
 endif
 
+# Is the user building with ESDM
+if USE_ESDM
+LIBSRCESDM_DIR = libsrcesdm
+ESDM_TEST_DIR = libsrcesdm_test
+endif
+
 # Build the dap2 client
 if ENABLE_DAP
 OCLIB = oc2
@@ -107,7 +113,7 @@ endif
 # This is the list of subdirs for which Makefiles will be constructed
 # and run. ncgen must come before ncdump, because their tests
 # depend on it.
-SUBDIRS = include $(H5_TEST_DIR) libdispatch libsrc $(LIBSRC4_DIR)	\
+SUBDIRS = include $(H5_TEST_DIR) libdispatch libsrc $(LIBSRC4_DIR) $(LIBSRCESDM_DIR) $(ESDM_TEST_DIR) \
 $(LIBSRCP) $(LIBHDF4) $(LIBHDF5) $(OCLIB) $(DAP2) ${DAP4} ${ZARR} liblib \
 $(NCGEN3) $(NCGEN) $(NCDUMP) ${PLUGIN_DIR} $(TESTDIRS) docs		\
 $(EXAMPLES)

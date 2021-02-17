@@ -147,6 +147,12 @@ extern int NCZ_initialize(void);
 extern int NCZ_finalize(void);
 #endif
 
+#ifdef USE_ESDM
+extern NC_Dispatch* esdm_dispatch_table;
+extern int ESDM_initialize(void);
+extern int ESDM_finalize(void);
+#endif
+
 /* User-defined formats.*/
 extern NC_Dispatch* UDF0_dispatch_table;
 extern char UDF0_magic_number[NC_MAX_MAGIC_NUMBER_LEN + 1];

@@ -110,6 +110,11 @@ int nc_create_par(const char *path, int cmode, MPI_Comm comm,
 #else
     NC_MPI_INFO data;
 
+#ifndef USE_ESDM
+    if (cmode & NC_ESDM)
+        return NC_ENOTBUILT;
+#endif
+
 #ifndef USE_PNETCDF
     /* PnetCDF is disabled but user wants to create classic file in parallel */
     if (!(cmode & NC_NETCDF4))

@@ -158,6 +158,8 @@ Use this in mode flags for both nc_create() and nc_open(). */
 #define NC_MPIPOSIX      NC_MPIIO /**< \deprecated */
 #define NC_PNETCDF       (NC_MPIIO) /**< \deprecated */
 
+#define NC_ESDM          0x10000  /**< Use ESDM */
+
 #define NC_PERSIST       0x4000  /**< Save diskless contents to disk. Mode flag for nc_open() or nc_create() */
 #define NC_INMEMORY      0x8000  /**< Read from memory. Mode flag for nc_open() or nc_create() */
 
@@ -186,7 +188,7 @@ Use this in mode flags for both nc_create() and nc_open(). */
 #define NC_FORMAT_CDF5    NC_FORMAT_64BIT_DATA
 
 /* Define a mask covering format flags only */
-#define NC_FORMAT_ALL (NC_64BIT_OFFSET|NC_64BIT_DATA|NC_CLASSIC_MODEL|NC_NETCDF4|NC_UDF0|NC_UDF1)
+#define NC_FORMAT_ALL (NC_64BIT_OFFSET|NC_64BIT_DATA|NC_CLASSIC_MODEL|NC_NETCDF4|NC_UDF0|NC_UDF1|NC_ESDM)
 
 /**@}*/
 
@@ -218,6 +220,7 @@ Use this in mode flags for both nc_create() and nc_open(). */
 #define NC_FORMATX_UDF0      (8)
 #define NC_FORMATX_UDF1      (9)
 #define NC_FORMATX_NCZARR    (10)
+#define NC_FORMATX_ESDM      (11)
 #define NC_FORMATX_UNDEFINED (0)
 
   /* To avoid breaking compatibility (such as in the python library),

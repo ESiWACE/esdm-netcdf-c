@@ -442,6 +442,10 @@ max_typeid(int ncid) {
 	return 0;
     }
     switch (format) {
+    case NC_FORMATX_ESDM:
+      maxtypes = NC_STRING;
+      maxatomictypes = NC_STRING; /* extra ESDM primitive types */
+      break;
     case NC_FORMAT_CLASSIC:
     case NC_FORMAT_NETCDF4_CLASSIC:
     case NC_FORMAT_64BIT_OFFSET:
