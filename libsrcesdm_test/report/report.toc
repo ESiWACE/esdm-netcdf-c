@@ -1,0 +1,434 @@
+\babel@toc {english}{}
+\contentsline {chapter}{\numberline {1}Python Tests}{6}{chapter.1}
+\contentsline {section}{\numberline {1.1}Introduction}{6}{section.1.1}
+\contentsline {section}{\numberline {1.2}Patch}{7}{section.1.2}
+\contentsline {chapter}{\numberline {2}Introduction}{11}{chapter.2}
+\contentsline {section}{\numberline {2.1}Outline}{12}{section.2.1}
+\contentsline {chapter}{\numberline {3}NetCDF and ESDM Functionalities}{13}{chapter.3}
+\contentsline {section}{\numberline {3.1}Error Handling}{13}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}ESDM}{13}{subsection.3.1.1}
+\contentsline {section}{\numberline {3.2}Classic Model}{13}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}ESDM}{14}{subsection.3.2.1}
+\contentsline {section}{\numberline {3.3}Modes}{14}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}ESDM}{14}{subsection.3.3.1}
+\contentsline {section}{\numberline {3.4}Data Types}{15}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}External Data Types}{15}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}User-Defined Types}{16}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}ESDM}{17}{subsection.3.4.3}
+\contentsline {section}{\numberline {3.5}Compression}{18}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}ESDM}{18}{subsection.3.5.1}
+\contentsline {section}{\numberline {3.6}Endianness}{18}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}ESDM}{18}{subsection.3.6.1}
+\contentsline {section}{\numberline {3.7}Groups}{19}{section.3.7}
+\contentsline {subsection}{\numberline {3.7.1}ESDM}{19}{subsection.3.7.1}
+\contentsline {section}{\numberline {3.8}Fill Values}{19}{section.3.8}
+\contentsline {subsection}{\numberline {3.8.1}ESDM}{19}{subsection.3.8.1}
+\contentsline {section}{\numberline {3.9}Type Conversion}{19}{section.3.9}
+\contentsline {subsection}{\numberline {3.9.1}ESDM}{21}{subsection.3.9.1}
+\contentsline {chapter}{\numberline {4}The NetCDF Tests}{22}{chapter.4}
+\contentsline {section}{\numberline {4.1}Specific Information For The Tests}{28}{section.4.1}
+\contentsline {section}{\numberline {4.2}Test cdm\_sea\_soundings.c}{28}{section.4.2}
+\contentsline {paragraph}{\nonumberline Description:}{28}{section*.13}
+\contentsline {paragraph}{\nonumberline Output:}{28}{section*.14}
+\contentsline {paragraph}{\nonumberline Comments:}{28}{section*.15}
+\contentsline {paragraph}{\nonumberline Status:}{28}{section*.16}
+\contentsline {section}{\numberline {4.3}Test h5testszip.c}{28}{section.4.3}
+\contentsline {paragraph}{\nonumberline Description:}{28}{section*.17}
+\contentsline {paragraph}{\nonumberline Output:}{28}{section*.18}
+\contentsline {paragraph}{\nonumberline Comments:}{29}{section*.19}
+\contentsline {paragraph}{\nonumberline Status:}{29}{section*.20}
+\contentsline {section}{\numberline {4.4}Test test\_szip.c}{29}{section.4.4}
+\contentsline {paragraph}{\nonumberline Description:}{29}{section*.21}
+\contentsline {paragraph}{\nonumberline Output:}{29}{section*.22}
+\contentsline {paragraph}{\nonumberline Comments:}{29}{section*.23}
+\contentsline {paragraph}{\nonumberline Status:}{29}{section*.24}
+\contentsline {section}{\numberline {4.5}\color {blue}{FIX ME! {Test tst\_atts.c}}}{29}{section.4.5}
+\contentsline {paragraph}{\nonumberline Description:}{29}{section*.25}
+\contentsline {paragraph}{\nonumberline Output:}{29}{section*.26}
+\contentsline {paragraph}{\nonumberline Comments:}{29}{section*.27}
+\contentsline {paragraph}{\nonumberline Status:}{29}{section*.28}
+\contentsline {section}{\numberline {4.6}\color {blue}{FIX ME! {Test tst\_atts1.c}}}{29}{section.4.6}
+\contentsline {paragraph}{\nonumberline Description:}{29}{section*.29}
+\contentsline {paragraph}{\nonumberline Output:}{29}{section*.30}
+\contentsline {paragraph}{\nonumberline Comments:}{30}{section*.31}
+\contentsline {paragraph}{\nonumberline Status:}{30}{section*.32}
+\contentsline {section}{\numberline {4.7}\color {blue}{FIX ME! Test tst\_atts2.c!}}{30}{section.4.7}
+\contentsline {paragraph}{\nonumberline Description:}{30}{section*.33}
+\contentsline {paragraph}{\nonumberline Output:}{30}{section*.34}
+\contentsline {paragraph}{\nonumberline Comments:}{30}{section*.35}
+\contentsline {paragraph}{\nonumberline Status:}{30}{section*.36}
+\contentsline {section}{\numberline {4.8}Test tst\_atts3.c}{30}{section.4.8}
+\contentsline {paragraph}{\nonumberline Description:}{30}{section*.37}
+\contentsline {paragraph}{\nonumberline Output:}{30}{section*.38}
+\contentsline {paragraph}{\nonumberline Comments:}{30}{section*.39}
+\contentsline {paragraph}{\nonumberline Status:}{30}{section*.40}
+\contentsline {section}{\numberline {4.9}Test tst\_attsperf.c}{30}{section.4.9}
+\contentsline {paragraph}{\nonumberline Description:}{30}{section*.41}
+\contentsline {paragraph}{\nonumberline Output:}{31}{section*.42}
+\contentsline {paragraph}{\nonumberline Comments:}{31}{section*.43}
+\contentsline {paragraph}{\nonumberline Status:}{31}{section*.44}
+\contentsline {section}{\numberline {4.10}Test tst\_atts\_string\_rewrite.c}{31}{section.4.10}
+\contentsline {paragraph}{\nonumberline Description:}{31}{section*.45}
+\contentsline {paragraph}{\nonumberline Output:}{31}{section*.46}
+\contentsline {paragraph}{\nonumberline Comments:}{31}{section*.47}
+\contentsline {paragraph}{\nonumberline Status:}{31}{section*.48}
+\contentsline {section}{\numberline {4.11}Test tst\_bug324.c}{31}{section.4.11}
+\contentsline {paragraph}{\nonumberline Description:}{31}{section*.49}
+\contentsline {paragraph}{\nonumberline Output:}{31}{section*.50}
+\contentsline {paragraph}{\nonumberline Comments:}{31}{section*.51}
+\contentsline {paragraph}{\nonumberline Status:}{31}{section*.52}
+\contentsline {section}{\numberline {4.12}Test tst\_camrun.c}{31}{section.4.12}
+\contentsline {paragraph}{\nonumberline Description:}{31}{section*.53}
+\contentsline {paragraph}{\nonumberline Output:}{31}{section*.54}
+\contentsline {paragraph}{\nonumberline Comments:}{31}{section*.55}
+\contentsline {paragraph}{\nonumberline Status:}{32}{section*.56}
+\contentsline {section}{\numberline {4.13}Test tst\_chunks.c}{32}{section.4.13}
+\contentsline {paragraph}{\nonumberline Description:}{32}{section*.57}
+\contentsline {paragraph}{\nonumberline Output:}{32}{section*.58}
+\contentsline {paragraph}{\nonumberline Comments:}{32}{section*.59}
+\contentsline {paragraph}{\nonumberline Status:}{32}{section*.60}
+\contentsline {section}{\numberline {4.14}Test tst\_chunks2.c}{32}{section.4.14}
+\contentsline {paragraph}{\nonumberline Description:}{32}{section*.61}
+\contentsline {paragraph}{\nonumberline Output:}{32}{section*.62}
+\contentsline {paragraph}{\nonumberline Comments:}{32}{section*.63}
+\contentsline {paragraph}{\nonumberline Status:}{32}{section*.64}
+\contentsline {section}{\numberline {4.15}\color {blue}{FIX ME! Test tst\_chunks3.c}}{32}{section.4.15}
+\contentsline {paragraph}{\nonumberline Description:}{32}{section*.65}
+\contentsline {paragraph}{\nonumberline Output:}{32}{section*.66}
+\contentsline {paragraph}{\nonumberline Comments:}{32}{section*.67}
+\contentsline {paragraph}{\nonumberline Status:}{32}{section*.68}
+\contentsline {section}{\numberline {4.16}Test tst\_compounds.c}{33}{section.4.16}
+\contentsline {paragraph}{\nonumberline Description:}{33}{section*.69}
+\contentsline {paragraph}{\nonumberline Output:}{33}{section*.70}
+\contentsline {paragraph}{\nonumberline Comments:}{33}{section*.71}
+\contentsline {paragraph}{\nonumberline Status:}{33}{section*.72}
+\contentsline {section}{\numberline {4.17}Test tst\_compounds2.c}{33}{section.4.17}
+\contentsline {paragraph}{\nonumberline Description:}{33}{section*.73}
+\contentsline {paragraph}{\nonumberline Output:}{33}{section*.74}
+\contentsline {paragraph}{\nonumberline Comments:}{33}{section*.75}
+\contentsline {paragraph}{\nonumberline Status:}{33}{section*.76}
+\contentsline {section}{\numberline {4.18}Test tst\_compounds3.c}{33}{section.4.18}
+\contentsline {paragraph}{\nonumberline Description:}{33}{section*.77}
+\contentsline {paragraph}{\nonumberline Output:}{33}{section*.78}
+\contentsline {paragraph}{\nonumberline Comments:}{33}{section*.79}
+\contentsline {paragraph}{\nonumberline Status:}{33}{section*.80}
+\contentsline {section}{\numberline {4.19}Test tst\_converts.c}{34}{section.4.19}
+\contentsline {paragraph}{\nonumberline Description:}{34}{section*.81}
+\contentsline {paragraph}{\nonumberline Output:}{34}{section*.82}
+\contentsline {paragraph}{\nonumberline Comments:}{34}{section*.83}
+\contentsline {paragraph}{\nonumberline Status:}{34}{section*.84}
+\contentsline {section}{\numberline {4.20}Test tst\_converts2.c}{34}{section.4.20}
+\contentsline {paragraph}{\nonumberline Description:}{34}{section*.85}
+\contentsline {paragraph}{\nonumberline Output:}{34}{section*.86}
+\contentsline {paragraph}{\nonumberline Comments:}{34}{section*.87}
+\contentsline {paragraph}{\nonumberline Status:}{34}{section*.88}
+\contentsline {section}{\numberline {4.21}Test tst\_coords.c}{34}{section.4.21}
+\contentsline {paragraph}{\nonumberline Description:}{34}{section*.89}
+\contentsline {paragraph}{\nonumberline Output:}{34}{section*.90}
+\contentsline {paragraph}{\nonumberline Comments:}{34}{section*.91}
+\contentsline {paragraph}{\nonumberline Status:}{35}{section*.92}
+\contentsline {section}{\numberline {4.22}Test tst\_coords2.c}{35}{section.4.22}
+\contentsline {paragraph}{\nonumberline Description:}{35}{section*.93}
+\contentsline {paragraph}{\nonumberline Output:}{35}{section*.94}
+\contentsline {paragraph}{\nonumberline Comments:}{35}{section*.95}
+\contentsline {paragraph}{\nonumberline Status:}{35}{section*.96}
+\contentsline {section}{\numberline {4.23}Test tst\_coords3.c}{35}{section.4.23}
+\contentsline {paragraph}{\nonumberline Description:}{35}{section*.97}
+\contentsline {paragraph}{\nonumberline Output:}{35}{section*.98}
+\contentsline {paragraph}{\nonumberline Comments:}{35}{section*.99}
+\contentsline {paragraph}{\nonumberline Status:}{35}{section*.100}
+\contentsline {section}{\numberline {4.24}Test tst\_create\_files.c}{35}{section.4.24}
+\contentsline {paragraph}{\nonumberline Description:}{35}{section*.101}
+\contentsline {paragraph}{\nonumberline Output:}{35}{section*.102}
+\contentsline {paragraph}{\nonumberline Comments:}{35}{section*.103}
+\contentsline {paragraph}{\nonumberline Status:}{35}{section*.104}
+\contentsline {section}{\numberline {4.25}\color {blue}{FIX ME! {Test tst\_dims.c}}}{36}{section.4.25}
+\contentsline {paragraph}{\nonumberline Description:}{36}{section*.105}
+\contentsline {paragraph}{\nonumberline Output:}{36}{section*.106}
+\contentsline {paragraph}{\nonumberline Comments:}{36}{section*.107}
+\contentsline {paragraph}{\nonumberline Status:}{36}{section*.108}
+\contentsline {section}{\numberline {4.26}\color {blue}{FIX ME! {Test tst\_dims2.c}}}{36}{section.4.26}
+\contentsline {paragraph}{\nonumberline Description:}{36}{section*.109}
+\contentsline {paragraph}{\nonumberline Output:}{36}{section*.110}
+\contentsline {paragraph}{\nonumberline Comments:}{36}{section*.111}
+\contentsline {paragraph}{\nonumberline Status:}{36}{section*.112}
+\contentsline {section}{\numberline {4.27}Test tst\_dims3.c}{36}{section.4.27}
+\contentsline {paragraph}{\nonumberline Description:}{36}{section*.113}
+\contentsline {paragraph}{\nonumberline Output:}{37}{section*.114}
+\contentsline {paragraph}{\nonumberline Comments:}{37}{section*.115}
+\contentsline {paragraph}{\nonumberline Status:}{37}{section*.116}
+\contentsline {section}{\numberline {4.28}Test tst\_elatefill.c}{37}{section.4.28}
+\contentsline {paragraph}{\nonumberline Description:}{37}{section*.117}
+\contentsline {paragraph}{\nonumberline Output:}{37}{section*.118}
+\contentsline {paragraph}{\nonumberline Comments:}{37}{section*.119}
+\contentsline {paragraph}{\nonumberline Status:}{37}{section*.120}
+\contentsline {section}{\numberline {4.29}Test tst\_empty\_vlen\_unlim.c}{37}{section.4.29}
+\contentsline {paragraph}{\nonumberline Description:}{37}{section*.121}
+\contentsline {paragraph}{\nonumberline Output:}{37}{section*.122}
+\contentsline {paragraph}{\nonumberline Comments:}{37}{section*.123}
+\contentsline {paragraph}{\nonumberline Status:}{37}{section*.124}
+\contentsline {section}{\numberline {4.30}Test tst\_endian\_fill.c}{37}{section.4.30}
+\contentsline {paragraph}{\nonumberline Description:}{37}{section*.125}
+\contentsline {paragraph}{\nonumberline Output:}{38}{section*.126}
+\contentsline {paragraph}{\nonumberline Comments:}{38}{section*.127}
+\contentsline {paragraph}{\nonumberline Status:}{38}{section*.128}
+\contentsline {section}{\numberline {4.31}Test tst\_enums.c}{38}{section.4.31}
+\contentsline {paragraph}{\nonumberline Description:}{38}{section*.129}
+\contentsline {paragraph}{\nonumberline Output:}{38}{section*.130}
+\contentsline {paragraph}{\nonumberline Comments:}{38}{section*.131}
+\contentsline {paragraph}{\nonumberline Status:}{38}{section*.132}
+\contentsline {section}{\numberline {4.32}Test tst\_files.c}{38}{section.4.32}
+\contentsline {paragraph}{\nonumberline Description:}{38}{section*.133}
+\contentsline {paragraph}{\nonumberline Output:}{38}{section*.134}
+\contentsline {paragraph}{\nonumberline Comments:}{38}{section*.135}
+\contentsline {paragraph}{\nonumberline Status:}{39}{section*.136}
+\contentsline {section}{\numberline {4.33}Test tst\_files3.c}{39}{section.4.33}
+\contentsline {paragraph}{\nonumberline Description:}{39}{section*.137}
+\contentsline {paragraph}{\nonumberline Output:}{39}{section*.138}
+\contentsline {paragraph}{\nonumberline Comments:}{39}{section*.139}
+\contentsline {paragraph}{\nonumberline Status:}{39}{section*.140}
+\contentsline {section}{\numberline {4.34}Test tst\_files4.c}{39}{section.4.34}
+\contentsline {paragraph}{\nonumberline Description:}{39}{section*.141}
+\contentsline {paragraph}{\nonumberline Output:}{39}{section*.142}
+\contentsline {paragraph}{\nonumberline Comments:}{39}{section*.143}
+\contentsline {paragraph}{\nonumberline Status:}{39}{section*.144}
+\contentsline {section}{\numberline {4.35}Test tst\_files5.c}{39}{section.4.35}
+\contentsline {paragraph}{\nonumberline Description:}{39}{section*.145}
+\contentsline {paragraph}{\nonumberline Output:}{39}{section*.146}
+\contentsline {paragraph}{\nonumberline Comments:}{39}{section*.147}
+\contentsline {paragraph}{\nonumberline Status:}{39}{section*.148}
+\contentsline {section}{\numberline {4.36}Test tst\_files6.c}{40}{section.4.36}
+\contentsline {paragraph}{\nonumberline Description:}{40}{section*.149}
+\contentsline {paragraph}{\nonumberline Output:}{40}{section*.150}
+\contentsline {paragraph}{\nonumberline Comments:}{40}{section*.151}
+\contentsline {paragraph}{\nonumberline Status:}{40}{section*.152}
+\contentsline {section}{\numberline {4.37}Test tst\_fill\_attr\_vanish.c}{40}{section.4.37}
+\contentsline {paragraph}{\nonumberline Description:}{40}{section*.153}
+\contentsline {paragraph}{\nonumberline Output:}{40}{section*.154}
+\contentsline {paragraph}{\nonumberline Comments:}{40}{section*.155}
+\contentsline {paragraph}{\nonumberline Status:}{40}{section*.156}
+\contentsline {section}{\numberline {4.38}Test tst\_fillbug.c}{40}{section.4.38}
+\contentsline {paragraph}{\nonumberline Description:}{40}{section*.157}
+\contentsline {paragraph}{\nonumberline Output:}{40}{section*.158}
+\contentsline {paragraph}{\nonumberline Comments:}{40}{section*.159}
+\contentsline {paragraph}{\nonumberline Status:}{40}{section*.160}
+\contentsline {section}{\numberline {4.39}\color {blue}{FIX ME! {Test tst\_fills.c}}}{41}{section.4.39}
+\contentsline {paragraph}{\nonumberline Description:}{41}{section*.161}
+\contentsline {paragraph}{\nonumberline Output:}{41}{section*.162}
+\contentsline {paragraph}{\nonumberline Comments:}{41}{section*.163}
+\contentsline {paragraph}{\nonumberline Status:}{41}{section*.164}
+\contentsline {section}{\numberline {4.40}Test tst\_fills2.c}{41}{section.4.40}
+\contentsline {paragraph}{\nonumberline Description:}{41}{section*.165}
+\contentsline {paragraph}{\nonumberline Output:}{41}{section*.166}
+\contentsline {paragraph}{\nonumberline Comments:}{41}{section*.167}
+\contentsline {paragraph}{\nonumberline Status:}{41}{section*.168}
+\contentsline {section}{\numberline {4.41}Test tst\_filterparser.c}{41}{section.4.41}
+\contentsline {paragraph}{\nonumberline Description:}{41}{section*.169}
+\contentsline {paragraph}{\nonumberline Output:}{41}{section*.170}
+\contentsline {paragraph}{\nonumberline Comments:}{41}{section*.171}
+\contentsline {paragraph}{\nonumberline Status:}{41}{section*.172}
+\contentsline {section}{\numberline {4.42}Test tst\_grps.c}{41}{section.4.42}
+\contentsline {paragraph}{\nonumberline Description:}{41}{section*.173}
+\contentsline {paragraph}{\nonumberline Output:}{42}{section*.174}
+\contentsline {paragraph}{\nonumberline Comments:}{42}{section*.175}
+\contentsline {paragraph}{\nonumberline Status:}{42}{section*.176}
+\contentsline {section}{\numberline {4.43}Test tst\_grps2.c}{42}{section.4.43}
+\contentsline {paragraph}{\nonumberline Description:}{42}{section*.177}
+\contentsline {paragraph}{\nonumberline Output:}{42}{section*.178}
+\contentsline {paragraph}{\nonumberline Comments:}{42}{section*.179}
+\contentsline {paragraph}{\nonumberline Status:}{42}{section*.180}
+\contentsline {section}{\numberline {4.44}Test tst\_h5\_endians.c}{42}{section.4.44}
+\contentsline {paragraph}{\nonumberline Description:}{42}{section*.181}
+\contentsline {paragraph}{\nonumberline Output:}{42}{section*.182}
+\contentsline {paragraph}{\nonumberline Comments:}{42}{section*.183}
+\contentsline {paragraph}{\nonumberline Status:}{42}{section*.184}
+\contentsline {section}{\numberline {4.45}Test tst\_hdf5\_file\_compat.c}{43}{section.4.45}
+\contentsline {paragraph}{\nonumberline Description:}{43}{section*.185}
+\contentsline {paragraph}{\nonumberline Output:}{43}{section*.186}
+\contentsline {paragraph}{\nonumberline Comments:}{43}{section*.187}
+\contentsline {paragraph}{\nonumberline Status:}{43}{section*.188}
+\contentsline {section}{\numberline {4.46}Test tst\_h\_refs.c}{43}{section.4.46}
+\contentsline {paragraph}{\nonumberline Description:}{43}{section*.189}
+\contentsline {paragraph}{\nonumberline Output:}{43}{section*.190}
+\contentsline {paragraph}{\nonumberline Comments:}{43}{section*.191}
+\contentsline {paragraph}{\nonumberline Status:}{43}{section*.192}
+\contentsline {section}{\numberline {4.47}Test tst\_h\_scalar.c}{43}{section.4.47}
+\contentsline {paragraph}{\nonumberline Description:}{43}{section*.193}
+\contentsline {paragraph}{\nonumberline Output:}{43}{section*.194}
+\contentsline {paragraph}{\nonumberline Comments:}{43}{section*.195}
+\contentsline {paragraph}{\nonumberline Status:}{44}{section*.196}
+\contentsline {section}{\numberline {4.48}Test tst\_h\_strbug.c}{44}{section.4.48}
+\contentsline {paragraph}{\nonumberline Description:}{44}{section*.197}
+\contentsline {paragraph}{\nonumberline Output:}{44}{section*.198}
+\contentsline {paragraph}{\nonumberline Comments:}{44}{section*.199}
+\contentsline {paragraph}{\nonumberline Status:}{44}{section*.200}
+\contentsline {section}{\numberline {4.49}Test tst\_interops.c}{44}{section.4.49}
+\contentsline {paragraph}{\nonumberline Description:}{44}{section*.201}
+\contentsline {paragraph}{\nonumberline Output:}{44}{section*.202}
+\contentsline {paragraph}{\nonumberline Comments:}{44}{section*.203}
+\contentsline {paragraph}{\nonumberline Status:}{44}{section*.204}
+\contentsline {section}{\numberline {4.50}Test tst\_interops5.c}{44}{section.4.50}
+\contentsline {paragraph}{\nonumberline Description:}{44}{section*.205}
+\contentsline {paragraph}{\nonumberline Output:}{44}{section*.206}
+\contentsline {paragraph}{\nonumberline Comments:}{44}{section*.207}
+\contentsline {paragraph}{\nonumberline Status:}{45}{section*.208}
+\contentsline {section}{\numberline {4.51}Test tst\_interops6.c}{45}{section.4.51}
+\contentsline {paragraph}{\nonumberline Description:}{45}{section*.209}
+\contentsline {paragraph}{\nonumberline Output:}{45}{section*.210}
+\contentsline {paragraph}{\nonumberline Comments:}{45}{section*.211}
+\contentsline {paragraph}{\nonumberline Status:}{45}{section*.212}
+\contentsline {section}{\numberline {4.52}Test tst\_large.c}{45}{section.4.52}
+\contentsline {paragraph}{\nonumberline Description:}{45}{section*.213}
+\contentsline {paragraph}{\nonumberline Output:}{45}{section*.214}
+\contentsline {paragraph}{\nonumberline Comments:}{45}{section*.215}
+\contentsline {paragraph}{\nonumberline Status:}{45}{section*.216}
+\contentsline {section}{\numberline {4.53}\color {blue}{FIX ME! {Test tst\_large2.c}}}{45}{section.4.53}
+\contentsline {paragraph}{\nonumberline Description:}{45}{section*.217}
+\contentsline {paragraph}{\nonumberline Output:}{45}{section*.218}
+\contentsline {paragraph}{\nonumberline Comments:}{45}{section*.219}
+\contentsline {paragraph}{\nonumberline Status:}{45}{section*.220}
+\contentsline {section}{\numberline {4.54}Test tst\_mem.c}{46}{section.4.54}
+\contentsline {paragraph}{\nonumberline Description:}{46}{section*.221}
+\contentsline {paragraph}{\nonumberline Output:}{46}{section*.222}
+\contentsline {paragraph}{\nonumberline Comments:}{46}{section*.223}
+\contentsline {paragraph}{\nonumberline Status:}{46}{section*.224}
+\contentsline {section}{\numberline {4.55}Test tst\_mode.c}{46}{section.4.55}
+\contentsline {paragraph}{\nonumberline Description:}{46}{section*.225}
+\contentsline {paragraph}{\nonumberline Output:}{46}{section*.226}
+\contentsline {paragraph}{\nonumberline Comments:}{46}{section*.227}
+\contentsline {paragraph}{\nonumberline Status:}{46}{section*.228}
+\contentsline {section}{\numberline {4.56}Test tst\_mpi\_parallel.c}{46}{section.4.56}
+\contentsline {paragraph}{\nonumberline Description:}{46}{section*.229}
+\contentsline {paragraph}{\nonumberline Output:}{46}{section*.230}
+\contentsline {paragraph}{\nonumberline Comments:}{46}{section*.231}
+\contentsline {paragraph}{\nonumberline Status:}{46}{section*.232}
+\contentsline {section}{\numberline {4.57}Test tst\_opaques.c}{46}{section.4.57}
+\contentsline {paragraph}{\nonumberline Description:}{46}{section*.233}
+\contentsline {paragraph}{\nonumberline Output:}{47}{section*.234}
+\contentsline {paragraph}{\nonumberline Comments:}{47}{section*.235}
+\contentsline {paragraph}{\nonumberline Status:}{47}{section*.236}
+\contentsline {section}{\numberline {4.58}\color {blue}{FIX ME! Test tst\_parallel.c}}{47}{section.4.58}
+\contentsline {paragraph}{\nonumberline Description:}{47}{section*.237}
+\contentsline {paragraph}{\nonumberline Output:}{47}{section*.238}
+\contentsline {paragraph}{\nonumberline Comments:}{47}{section*.239}
+\contentsline {paragraph}{\nonumberline Status:}{47}{section*.240}
+\contentsline {section}{\numberline {4.59}Test tst\_put\_vars.c}{47}{section.4.59}
+\contentsline {paragraph}{\nonumberline Description:}{47}{section*.241}
+\contentsline {paragraph}{\nonumberline Output:}{47}{section*.242}
+\contentsline {paragraph}{\nonumberline Comments:}{47}{section*.243}
+\contentsline {paragraph}{\nonumberline Status:}{47}{section*.244}
+\contentsline {section}{\numberline {4.60}Test tst\_rehash.c}{47}{section.4.60}
+\contentsline {paragraph}{\nonumberline Description:}{47}{section*.245}
+\contentsline {paragraph}{\nonumberline Output:}{47}{section*.246}
+\contentsline {paragraph}{\nonumberline Comments:}{47}{section*.247}
+\contentsline {paragraph}{\nonumberline Status:}{48}{section*.248}
+\contentsline {section}{\numberline {4.61}Test tst\_rename.c}{48}{section.4.61}
+\contentsline {paragraph}{\nonumberline Description:}{48}{section*.249}
+\contentsline {paragraph}{\nonumberline Output:}{48}{section*.250}
+\contentsline {paragraph}{\nonumberline Comments:}{48}{section*.251}
+\contentsline {paragraph}{\nonumberline Status:}{48}{section*.252}
+\contentsline {section}{\numberline {4.62}\color {blue}{FIX ME! {Test tst\_rename2.c}}}{48}{section.4.62}
+\contentsline {paragraph}{\nonumberline Description:}{48}{section*.253}
+\contentsline {paragraph}{\nonumberline Output:}{48}{section*.254}
+\contentsline {paragraph}{\nonumberline Comments:}{48}{section*.255}
+\contentsline {paragraph}{\nonumberline Status:}{48}{section*.256}
+\contentsline {section}{\numberline {4.63}\color {blue}{FIX ME! Test tst\_simplerw\_coll\_r.c}}{48}{section.4.63}
+\contentsline {paragraph}{\nonumberline Description:}{48}{section*.257}
+\contentsline {paragraph}{\nonumberline Output:}{48}{section*.258}
+\contentsline {paragraph}{\nonumberline Comments:}{48}{section*.259}
+\contentsline {paragraph}{\nonumberline Status:}{48}{section*.260}
+\contentsline {section}{\numberline {4.64}Test tst\_strings.c}{49}{section.4.64}
+\contentsline {paragraph}{\nonumberline Description:}{49}{section*.261}
+\contentsline {paragraph}{\nonumberline Output:}{49}{section*.262}
+\contentsline {paragraph}{\nonumberline Comments:}{49}{section*.263}
+\contentsline {paragraph}{\nonumberline Status:}{49}{section*.264}
+\contentsline {section}{\numberline {4.65}Test tst\_strings2.c}{49}{section.4.65}
+\contentsline {paragraph}{\nonumberline Description:}{49}{section*.265}
+\contentsline {paragraph}{\nonumberline Output:}{49}{section*.266}
+\contentsline {paragraph}{\nonumberline Comments:}{49}{section*.267}
+\contentsline {paragraph}{\nonumberline Status:}{49}{section*.268}
+\contentsline {section}{\numberline {4.66}Test tst\_sync.c}{49}{section.4.66}
+\contentsline {paragraph}{\nonumberline Description:}{49}{section*.269}
+\contentsline {paragraph}{\nonumberline Output:}{49}{section*.270}
+\contentsline {paragraph}{\nonumberline Comments:}{49}{section*.271}
+\contentsline {paragraph}{\nonumberline Status:}{49}{section*.272}
+\contentsline {section}{\numberline {4.67}Test tst\_types.c}{49}{section.4.67}
+\contentsline {paragraph}{\nonumberline Description:}{49}{section*.273}
+\contentsline {paragraph}{\nonumberline Output:}{50}{section*.274}
+\contentsline {paragraph}{\nonumberline Comments:}{50}{section*.275}
+\contentsline {paragraph}{\nonumberline Status:}{50}{section*.276}
+\contentsline {section}{\numberline {4.68}Test tst\_udf.c}{50}{section.4.68}
+\contentsline {paragraph}{\nonumberline Description:}{50}{section*.277}
+\contentsline {paragraph}{\nonumberline Output:}{50}{section*.278}
+\contentsline {paragraph}{\nonumberline Comments:}{50}{section*.279}
+\contentsline {paragraph}{\nonumberline Status:}{50}{section*.280}
+\contentsline {section}{\numberline {4.69}Test tst\_unlim\_vars.c}{50}{section.4.69}
+\contentsline {paragraph}{\nonumberline Description:}{50}{section*.281}
+\contentsline {paragraph}{\nonumberline Output:}{50}{section*.282}
+\contentsline {paragraph}{\nonumberline Comments:}{50}{section*.283}
+\contentsline {paragraph}{\nonumberline Status:}{51}{section*.284}
+\contentsline {section}{\numberline {4.70}Test tst\_utf8.c}{51}{section.4.70}
+\contentsline {paragraph}{\nonumberline Description:}{51}{section*.285}
+\contentsline {paragraph}{\nonumberline Output:}{51}{section*.286}
+\contentsline {paragraph}{\nonumberline Comments:}{51}{section*.287}
+\contentsline {paragraph}{\nonumberline Status:}{51}{section*.288}
+\contentsline {section}{\numberline {4.71}Test tst\_v2.c}{51}{section.4.71}
+\contentsline {paragraph}{\nonumberline Description:}{51}{section*.289}
+\contentsline {paragraph}{\nonumberline Output:}{51}{section*.290}
+\contentsline {paragraph}{\nonumberline Comments:}{51}{section*.291}
+\contentsline {paragraph}{\nonumberline Status:}{51}{section*.292}
+\contentsline {section}{\numberline {4.72}Test tst\_varms.c}{51}{section.4.72}
+\contentsline {paragraph}{\nonumberline Description:}{51}{section*.293}
+\contentsline {paragraph}{\nonumberline Output:}{51}{section*.294}
+\contentsline {paragraph}{\nonumberline Comments:}{51}{section*.295}
+\contentsline {paragraph}{\nonumberline Status:}{51}{section*.296}
+\contentsline {section}{\numberline {4.73}Test tst\_vars.c}{52}{section.4.73}
+\contentsline {paragraph}{\nonumberline Description:}{52}{section*.297}
+\contentsline {paragraph}{\nonumberline Output:}{52}{section*.298}
+\contentsline {paragraph}{\nonumberline Comments:}{52}{section*.299}
+\contentsline {paragraph}{\nonumberline Status:}{52}{section*.300}
+\contentsline {section}{\numberline {4.74}Test tst\_vars2.c}{52}{section.4.74}
+\contentsline {paragraph}{\nonumberline Description:}{52}{section*.301}
+\contentsline {paragraph}{\nonumberline Output:}{52}{section*.302}
+\contentsline {paragraph}{\nonumberline Comments:}{52}{section*.303}
+\contentsline {paragraph}{\nonumberline Status:}{53}{section*.304}
+\contentsline {section}{\numberline {4.75}Test tst\_vars3.c}{53}{section.4.75}
+\contentsline {paragraph}{\nonumberline Description:}{53}{section*.305}
+\contentsline {paragraph}{\nonumberline Output:}{53}{section*.306}
+\contentsline {paragraph}{\nonumberline Comments:}{53}{section*.307}
+\contentsline {paragraph}{\nonumberline Status:}{53}{section*.308}
+\contentsline {section}{\numberline {4.76}Test tst\_vars4.c}{53}{section.4.76}
+\contentsline {paragraph}{\nonumberline Description:}{53}{section*.309}
+\contentsline {paragraph}{\nonumberline Output:}{53}{section*.310}
+\contentsline {paragraph}{\nonumberline Comments:}{53}{section*.311}
+\contentsline {paragraph}{\nonumberline Status:}{54}{section*.312}
+\contentsline {section}{\numberline {4.77}Test tst\_vl.c}{54}{section.4.77}
+\contentsline {paragraph}{\nonumberline Description:}{54}{section*.313}
+\contentsline {paragraph}{\nonumberline Output:}{54}{section*.314}
+\contentsline {paragraph}{\nonumberline Comments:}{54}{section*.315}
+\contentsline {paragraph}{\nonumberline Status:}{54}{section*.316}
+\contentsline {section}{\numberline {4.78}Test t\_type.c}{54}{section.4.78}
+\contentsline {paragraph}{\nonumberline Description:}{54}{section*.317}
+\contentsline {paragraph}{\nonumberline Output:}{54}{section*.318}
+\contentsline {paragraph}{\nonumberline Comments:}{54}{section*.319}
+\contentsline {paragraph}{\nonumberline Status:}{54}{section*.320}
+\contentsline {chapter}{\numberline {5}Python Tests}{55}{chapter.5}
+\contentsline {section}{\numberline {5.1}Introduction}{55}{section.5.1}
+\contentsline {section}{\numberline {5.2}Patch}{56}{section.5.2}
+\contentsline {chapter}{\numberline {6}NetCDF Benchmark}{60}{chapter.6}
+\contentsline {section}{\numberline {6.1}Introduction}{60}{section.6.1}
+\contentsline {section}{\numberline {6.2}Tests}{61}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Test 1}{61}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Test 2}{61}{subsection.6.2.2}
+\contentsline {subsection}{\numberline {6.2.3}Test 3}{61}{subsection.6.2.3}
+\contentsline {subsection}{\numberline {6.2.4}Test 4}{61}{subsection.6.2.4}
+\contentsline {subsection}{\numberline {6.2.5}Test 5}{61}{subsection.6.2.5}
+\contentsline {subsection}{\numberline {6.2.6}Test 6}{62}{subsection.6.2.6}
+\contentsline {subsection}{\numberline {6.2.7}Test 7}{62}{subsection.6.2.7}
+\contentsline {subsection}{\numberline {6.2.8}Test 8}{62}{subsection.6.2.8}
+\contentsline {chapter}{\numberline {7}Tests with nccopy}{64}{chapter.7}
+\contentsline {section}{\numberline {7.1}Introduction}{64}{section.7.1}
+\contentsline {section}{\numberline {7.2}Tests}{65}{section.7.2}
+\contentsline {chapter}{\numberline {8}Jenkins}{67}{chapter.8}
+\contentsline {chapter}{\numberline {9}Conclusion}{68}{chapter.9}
+\contentsline {chapter}{\numberline {A}Conversion}{69}{Appendix.1.A}

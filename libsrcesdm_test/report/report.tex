@@ -1,0 +1,114 @@
+\documentclass[a4paper,12pt]{esiwace-modified}
+% \documentclass[a4paper,12pt]{report}
+
+\title{Compatibility Report -- ESDM and NetCDF}
+\author{
+Luciana Pedro
+\and Julian Kunkel
+\and Benjamin Hodges
+}
+
+\makeatletter
+\patchcmd{\@verbatim}
+  {\verbatim@font}
+  {\verbatim@font\tiny}
+  {}{}
+\makeatother
+
+\date{\today} % Replace with final date
+
+\usepackage[numbers]{natbib}
+\usepackage{adjustbox}
+\usepackage{listings}
+\usepackage{framed}
+\usepackage{textcomp}
+\usepackage{footnote}
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage{url}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+\usepackage{comment}
+\usepackage{pdflscape}
+\usepackage{adjustbox}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage{appendix}
+\usepackage{tocloft} % cftsetindents
+\usepackage{indentfirst} % ident first paragraph
+
+\newcommand{\tocheck}{{\LARGE \color{green}{TO CHECK}}}
+
+\makeatletter
+\global\let\tikz@ensure@dollar@catcode=\relax
+\makeatother
+
+\cftsetindents{subsection}{3em}{3.5em} % Space between subsection numbers and titles
+
+\begin{document}
+\title{Compatibility Between ESDM and NetCDF4}
+\date{\today}
+
+\maketitle
+
+\tableofcontents
+
+\parskip 9pt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\input{intro.tex}
+
+\clearpage
+
+\input{esdm.tex}
+
+\clearpage
+
+\input{functionalities.tex}
+
+\clearpage
+
+\input{nc-tests-intro.tex}
+
+\input{nc-status.tex}
+
+\input{nc-status2.tex}
+
+\input{nc-tests.tex}
+
+\clearpage
+
+\input{python.tex}
+
+\clearpage
+
+\input{bench.tex}
+
+\clearpage
+
+\input{nccopy.tex}
+
+\clearpage
+
+\input{jenkins.tex}
+
+\clearpage
+
+\input{conclusion.tex}
+
+% \chapter{Others}
+% \input{hdf5-netcdf-esdm-tab.tex}
+
+% \begin{appendices}
+% \input{conversion.tex}
+% \end{appendices}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

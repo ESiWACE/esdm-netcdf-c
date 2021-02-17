@@ -1,0 +1,259 @@
+\chapter{NetCDF Benchmark}
+\label{ch:bench}
+
+\section{Introduction}
+
+So far, we tested individual features of ESDM.
+As part of this section, we discuss the usage of a benchmark application that uses NetCDF (and hence, ESDM) similarly to a real application.
+
+{\itshape
+
+NetCDF Performance Benchmark Tool (NetCDF-Bench) was developed to measure NetCDF performance on devices ranging from notebooks to large HPC systems.
+It mimics the typical I/O behaviour of scientific climate applications and captures the performance on each node/process.
+In the end, it aggregates the data to human-readable summary.
+
+The data layout is inspired by simulation where a 3D object changes its shape over time.
+Therefore, it creates a 3-dimensional space and several time steps.
+Furthermore, we assume that a scientific application is executed on several processes on multiple nodes, and processes the time steps in sequential order.
+
+NetCDF-Bench is parallel bechmark.
+It supports independent I/O, collective I/O and chunked I/O modes.
+If necessary, it can pre-fill the variables with some value.
+}\footnote{\url{https://github.com/joobog/netcdf-bench}}
+
+Scripts to set up the NetCDF Benchmark with ESDM can be found in the directory
+
+\begin{framed}
+esiwace/esdm-netcdf/libsrcesdm\_test/netcdf-bench
+\end{framed}
+
+The procedures to run the tests are following.
+
+Run the prepare script:
+
+\begin{framed}
+./prepare.sh
+\end{framed}
+
+Before starting the tests, we need to copy or link the file \texttt{\_esdm.conf} to the directory \texttt{esdm-netcdf/libsrcesdm\_test/netcdf-bench}. This can be done using a copy from the directory \texttt{esdm-netcdf/dev}.
+
+Run the \texttt{mkfs.esdm} utility with the following parameters.
+
+\begin{framed}
+\$ mkfs.esdm {-}{-}create {-}{-}remove {-}{-}ignore-errors -g -c \_esdm.conf
+\end{framed}
+
+The benchmark file is called \texttt{benchtool} and it can be run with several parameters.
+For more information about this benchmark, run the command
+
+\begin{framed}
+./benchtool --help
+\end{framed}
+
+\begin{comment}
+
+From here, nothing else works anymore.
+All the benchmarks receive:
+
+[lucy-GS70-2PC-Stealth:04433] *** Process received signal ***
+[lucy-GS70-2PC-Stealth:04433] Signal: Segmentation fault (11)
+
+and the parallel process have the error:
+
+mpiexec was unable to launch the specified application as it could not access
+or execute an executable:
+
+- - -
+
+Executable: ./src/benchtool
+Node: lucy-GS70-2PC-Stealth
+
+while attempting to start process rank 0.
+
+\section{Tests}
+
+The benchmark can run with various levels of parallelism, domain decomposition and access patterns.
+
+\subsection{Test 1}
+
+./benchtool -f=esdm://longtest -w
+
+\subsection{Test 2}
+
+./benchtool -f=esdm://longtest -r
+
+\subsection{Test 3}
+
+./benchtool -f=esdm://longtest -w -r
+
+\subsection{Test 4}
+
+mpiexec -np 2 ./src/benchtool -f="esdm://test.esdm" -n=1 -p=2
+
+\subsection{Test 5}
+
+\begin{verbatim}
+./benchtool -f=esdm://testfile -F=1
+
+Benchtool (datatype: int)
+DEBUG [0]          main.c:364   dgeom (100:100:100:10)
+DEBUG [0]          main.c:365   bgeom (1:100:100:10)
+DEBUG [0]          main.c:369   (nn 1, ppn 1)
+DEBUG [0]          main.c:370   test filename esdm://testfile
+Data geometry (t:x:y:z x sizeof(type))     100:100:100:10 x 4 bytes
+Block geometry (t:x:y:z x sizeof(type))      1:100:100:10 x 4 bytes
+Datasize                                             40000000 bytes                (40.0 MB)
+Blocksize                                              400000 bytes                (400.0 kB)
+I/O Access                                        independent
+Storage                                            contiguous
+File length                                             fixed
+Fill value                                                yes
+0 = 100
+1 = 100
+2 = 100
+3 = 10
+                                                                               min                  avg                  max
+benchmark:write      Open time                                        0.0018334580         0.0018334580         0.0018334580 secs
+benchmark:write      I/O time                                         0.0652808010         0.0652808010         0.0652808010 secs
+benchmark:write      Close time                                       0.0004117420         0.0004117420         0.0004117420 secs
+benchmark:write      I/O Performance (w/o open/close)               584.3520923750       584.3520923750       584.3520923750 MiB/s
+benchmark:write      I/O Performance                                564.9227274190       564.9227274190       564.9227274190 MiB/s
+DEBUG [0]        report.c:362   REPORT_END
+
+ESDM has not been shutdown correctly. Stacktrace:
+3: /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xee) [0x7f1a4b837b9e]
+4: ./benchtool(_start+0x2a) [0x55b91b68ce6a]
+\end{verbatim}
+
+\subsection{Test 6}
+
+\begin{verbatim}
+./benchtool -f=esdm://testfile
+
+Benchtool (datatype: int)
+Data geometry (t:x:y:z x sizeof(type))     100:100:100:10 x 4 bytes
+Block geometry (t:x:y:z x sizeof(type))      1:100:100:10 x 4 bytes
+Datasize                                             40000000 bytes                (40.0 MB)
+Blocksize                                              400000 bytes                (400.0 kB)
+I/O Access                                        independent
+Storage                                            contiguous
+File length                                             fixed
+File value                                                 no
+DEBUG [0]     benchmark.c:213   OPEN_BENCHMARK
+0 = 100
+1 = 100
+2 = 100
+3 = 10
+                                                                               min                  avg                  max
+benchmark:write      Open time                                        0.0017575690         0.0017575690         0.0017575690 secs
+benchmark:write      I/O time                                         0.0612307650         0.0612307650         0.0612307650 secs
+benchmark:write      Close time                                       0.0006145310         0.0006145310         0.0006145310 secs
+benchmark:write      I/O Performance (w/o open/close)               623.0033653140       623.0033653140       623.0033653140 MiB/s
+benchmark:write      I/O Performance                                599.7681496880       599.7681496880       599.7681496880 MiB/s
+DEBUG [0]        report.c:362   REPORT_END
+
+ESDM has not been shutdown correctly. Stacktrace:
+3: /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xee) [0x7f29b95bab9e]
+4: ./benchtool(_start+0x2a) [0x556502704e6a]
+\end{verbatim}
+
+\subsection{Test 7}
+
+\begin{verbatim}
+./benchtool -f=esdm://longtest -w -r
+
+Benchtool (datatype: int)
+Data geometry (t:x:y:z x sizeof(type))     100:100:100:10 x 4 bytes
+Block geometry (t:x:y:z x sizeof(type))      1:100:100:10 x 4 bytes
+Datasize                                             40000000 bytes                (40.0 MB)
+Blocksize                                              400000 bytes                (400.0 kB)
+I/O Access                                        independent
+Storage                                            contiguous
+File length                                             fixed
+File value                                                 no
+DEBUG [0]     benchmark.c:213   OPEN_BENCHMARK
+0 = 100
+1 = 100
+2 = 100
+3 = 10
+                                                                               min                  avg                  max
+benchmark:write      Open time                                        0.0021035570         0.0021035570         0.0021035570 secs
+benchmark:write      I/O time                                         0.0550000690         0.0550000690         0.0550000690 secs
+benchmark:write      Close time                                       0.0005124810         0.0005124810         0.0005124810 secs
+benchmark:write      I/O Performance (w/o open/close)               693.5804508943       693.5804508943       693.5804508943 MiB/s
+benchmark:write      I/O Performance                                662.0886873884       662.0886873884       662.0886873884 MiB/s
+                                                                               min                  avg                  max
+benchmark:read       Open time                                        0.0010185700         0.0010185700         0.0010185700 secs
+benchmark:read       I/O time                                         0.0209648240         0.0209648240         0.0209648240 secs
+benchmark:read       Close time                                       0.0003341830         0.0003341830         0.0003341830 secs
+benchmark:read       I/O Performance (w/o open/close)              1819.5703744858      1819.5703744858      1819.5703744858 MiB/s
+benchmark:read       I/O Performance                               1709.2793117792      1709.2793117792      1709.2793117792 MiB/s
+DEBUG [0]        report.c:362   REPORT_END
+
+ESDM has not been shutdown correctly. Stacktrace:
+3: /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xee) [0x7f71e0849b9e]
+4: ./benchtool(_start+0x2a) [0x5611f27a1e6a]
+\end{verbatim}
+
+\subsection{Test 8}
+
+\begin{verbatim}
+./run-test.sh
+
+#!/bin/bash
+
+./benchtool -f=esdm://longtest -w -r
+
+mpiexec -np 2 ./src/benchtool -f="esdm://test.esdm" -n=1 -p=2
+
+echo "Cleanup"
+rm -rf _metadummy _esdm
+
+echo "[OK]"
+
+Benchtool (datatype: int)
+Data geometry (t:x:y:z x sizeof(type))     100:100:100:10 x 4 bytes
+Block geometry (t:x:y:z x sizeof(type))      1:100:100:10 x 4 bytes
+Datasize                                             40000000 bytes                (40.0 MB)
+Blocksize                                              400000 bytes                (400.0 kB)
+I/O Access                                        independent
+Storage                                            contiguous
+File length                                             fixed
+File value                                                 no
+DEBUG [0]     benchmark.c:213   OPEN_BENCHMARK
+0 = 100
+1 = 100
+2 = 100
+3 = 10
+                                                                               min                  avg                  max
+benchmark:write      Open time                                        0.0020030390         0.0020030390         0.0020030390 secs
+benchmark:write      I/O time                                         0.0648872400         0.0648872400         0.0648872400 secs
+benchmark:write      Close time                                       0.0003753280         0.0003753280         0.0003753280 secs
+benchmark:write      I/O Performance (w/o open/close)               587.8963669180       587.8963669180       587.8963669180 MiB/s
+benchmark:write      I/O Performance                                567.1096174930       567.1096174930       567.1096174930 MiB/s
+                                                                               min                  avg                  max
+benchmark:read       Open time                                        0.0008915110         0.0008915110         0.0008915110 secs
+benchmark:read       I/O time                                         0.0168951110         0.0168951110         0.0168951110 secs
+benchmark:read       Close time                                       0.0004516290         0.0004516290         0.0004516290 secs
+benchmark:read       I/O Performance (w/o open/close)              2257.8704962897      2257.8704962897      2257.8704962897 MiB/s
+benchmark:read       I/O Performance                               2091.5916039082      2091.5916039082      2091.5916039082 MiB/s
+DEBUG [0]        report.c:362   REPORT_END
+
+ESDM has not been shutdown correctly. Stacktrace:
+3: /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xee) [0x7f8f101e3b9e]
+4: ./benchtool(_start+0x2a) [0x56250989ee6a]
+--------------------------------------------------------------------------
+mpiexec was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: ./src/benchtool
+Node: lucy
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+2 total processes failed to start
+Cleanup
+[OK]
+\end{verbatim}
+
+\end{comment}
