@@ -21,6 +21,8 @@
 #include "nc.h"
 #include "ncdispatch.h"
 
+#define DEBUG_MORE
+
 #define NOT_IMPLEMENTED assert(0 && "NOT IMPLEMENTED");
 
 #define DEBUG(...)                                        \
@@ -1948,26 +1950,31 @@ int ESDM_inq_var_all(int ncid, int varid, char *name, nc_type *xtypep, int *ndim
   }
 
   if (shufflep) {
+    *shufflep = 0;
     WARN_NOT_SUPPORTED_COMPRESSION;
   }
 
   if (deflatep) {
+    *deflatep = 0;
     WARN_NOT_SUPPORTED_COMPRESSION;
   }
 
   if (deflate_levelp) {
+    *deflate_levelp = 0;
     WARN_NOT_SUPPORTED_COMPRESSION;
   }
 
   if (fletcher32p) {
+    *fletcher32p = 0;
     WARN_NOT_SUPPORTED_COMPRESSION;
   }
 
   if (contiguousp) {
-    WARN_NOT_SUPPORTED_COMPRESSION;
+    *contiguousp = 1;
   }
 
   if (chunksizesp) {
+    *chunksizesp = 0;
     WARN_NOT_SUPPORTED_COMPRESSION;
   }
 
