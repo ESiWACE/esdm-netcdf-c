@@ -282,7 +282,7 @@ ncuriparse(const char* uri0, NCURI** durip)
        All other cases are disallowed.
     */
 
-    isfile = (strcmp(tmp.protocol,"file")==0);
+    isfile = (strcmp(tmp.protocol,"file")==0) || (strcasecmp(tmp.protocol,"esdm")==0);
     if(isfile) {
 	size_t l = strlen(p); /* to test if we have enough characters */
 	hashost = 0; /* always */

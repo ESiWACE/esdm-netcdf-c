@@ -408,7 +408,6 @@ int ESDM_create(const char *path, int cmode, size_t initialsz, int basepe, size_
     }
     cpath[pos] = '\0';
   }
-  DEBUG_ENTER("%s %d %d %s\n", cpath, ncp->ext_ncid, ncp->int_ncid, ncp->path);
 
   nc_esdm_t *e = malloc(sizeof(nc_esdm_t));
   memset(e, 0, sizeof(nc_esdm_t));
@@ -422,6 +421,8 @@ int ESDM_create(const char *path, int cmode, size_t initialsz, int basepe, size_
   }
   nc->dispatchdata = e;
   nc->int_ncid = nc__pseudofd(); /* create a unique id */
+  
+  DEBUG_ENTER("%s %d %d %s\n", cpath, ncid, nc->int_ncid, nc->path);
 
 
   esdm_status status;
@@ -481,8 +482,6 @@ int ESDM_open(const char *path, int cmode, int basepe, size_t *chunksizehintp, v
   }
   // const char * base = basename(realpath);
 
-  DEBUG_ENTER("%s %d %d %s\n", cpath, ncp->ext_ncid, ncp->int_ncid, ncp->path);
-
   nc_esdm_t *e = malloc(sizeof(nc_esdm_t));
   memset(e, 0, sizeof(nc_esdm_t));
   e->ncid = ncid;
@@ -494,6 +493,7 @@ int ESDM_open(const char *path, int cmode, int basepe, size_t *chunksizehintp, v
   }
   nc->dispatchdata = e;
   nc->int_ncid = nc__pseudofd(); /* create a unique id */
+  DEBUG_ENTER("%s %d %d %s\n", cpath, ncid, nc->int_ncid, nc->path);
 
   esdm_status status;
 
