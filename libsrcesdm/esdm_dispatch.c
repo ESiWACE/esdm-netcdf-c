@@ -881,7 +881,7 @@ int ESDM_inq(int ncid, int *ndimsp, int *nvarsp, int *nattsp, int *unlimdimidp) 
     for (int i = 0; i < e->dimt.count; i++) {
       if (e->dimt.size[i] == 0) {
         *unlimdimidp = i;
-        return NC_NOERR;
+        break;
       }
     }
   }
@@ -1006,8 +1006,8 @@ int ESDM_inq_dim(int ncid, int dimid, char *name, size_t *lenp) {
 
   if (name) {
     strcpy(name, e->dimt.name[dimid]);
-    DEBUG_ENTER("%s\n", name);
   }
+  DEBUG_ENTER("%s %llu\n", e->dimt.name[dimid], e->dimt.size[dimid]);
 
   if (lenp) {
     size_t size = e->dimt.size[dimid];
@@ -1173,6 +1173,7 @@ int ESDM_inq_att(int ncid, int varid, const char *name, nc_type *datatypep, size
 
   smd_attr_t *a;
   a = smd_attr_get_child_by_name(attr, name);
+  DEBUG_ENTER("got %p\n", a);
   if (!a) {
     return NC_ENOTATT;
   }
@@ -1638,7 +1639,7 @@ int ESDM_inq_varid(int ncid, const char *name, int *varidp) {
 
     char const *dname = esdm_dataset_name(dset);
     if (dname == NULL)
-      return NC_NOERR;
+      return NC_EACCESS;
 
     if (strcmp(dname, name) == 0) {
       *varidp = i;
