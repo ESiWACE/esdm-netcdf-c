@@ -1710,10 +1710,14 @@ int ESDM_get_vars(int ncid, int varid, const size_t *startp, const size_t *count
   esdm_dataspace_t *space;
   esdm_status status = esdm_dataset_get_dataspace(kv->dset, &space);
 
-  if (mem_nc_type != type_esdm_to_nc(esdm_dataspace_get_type(space)->type) && mem_nc_type != NC_NAT) {
-    // TODO stridep
-
+  esdm_type_t nc_type;
+  esdm_type_t esdm_type = esdm_dataspace_get_type(space);
+  if(mem_nc_type == NC_NAT){
+    nc_type = esdm_type;
+  }else{
+    nc_type = type_nc_to_esdm(mem_nc_type);
   }
+
   int ndims = esdm_dataspace_get_dims(space);
   int64_t const *spacesize = esdm_dataset_get_actual_size(kv->dset);
 
@@ -1724,7 +1728,9 @@ int ESDM_get_vars(int ncid, int varid, const size_t *startp, const size_t *count
     offset[i] = startp[i];
   }
   esdm_dataspace_t *subspace;
-  status = esdm_dataspace_subspace(space, ndims, size, offset, &subspace);
+  //status = esdm_dataspace_subspace(space, ndims, size, offset, &subspace);  
+
+  status = esdm_dataspace_create_full(ndims, size, offset, nc_type, & subspace);  
   if (status != ESDM_SUCCESS) {
     int count = 0;
     for (int i = 0; i < ndims; i++)
@@ -1737,7 +1743,28 @@ int ESDM_get_vars(int ncid, int varid, const size_t *startp, const size_t *count
       return NC_EACCESS;
     }
   }
+      
   status = esdm_read(kv->dset, (void *)data, subspace);
+
+  /*
+  int64_t xsize = esdm_dataspace_total_bytes(subspace);
+  printf("Got: %ld\n", xsize);
+  if (nc_type == SMD_DTYPE_FLOAT){
+    for(int i=0; i < xsize / 4; i++){
+      float * d = (float*)data;
+      printf("%d: %f\n", i, d[i]);
+      d[i] = i;
+    }
+  }
+  if (nc_type == SMD_DTYPE_DOUBLE){
+    for(int i=0; i < xsize / 8; i++){
+      double * d = (double*)data;
+      printf("%d: %f\n", i, d[i]);
+      d[i] = i;
+    }
+  }
+  */
+  
   esdm_dataspace_destroy(subspace);
   if (status != ESDM_SUCCESS) {
     return NC_EINVAL;
