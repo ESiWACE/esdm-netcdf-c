@@ -693,6 +693,8 @@ set_default_mode(int* modep)
 @param newpathp
 */
 
+#include <sys/time.h>
+
 int
 NC_infermodel(const char* path, int* omodep, int iscreate, int useparallel, void* params, NCmodel* model, char** newpathp)
 {
@@ -704,9 +706,43 @@ NC_infermodel(const char* path, int* omodep, int iscreate, int useparallel, void
     char* sfrag = NULL;
     const char* modeval = NULL;
 
-    if(strncasecmp(path, "esdm:/", 6) == 0) {
+    int esdm_active = 1;
+    if(getenv("ESDM_IGNORE_TIMER")){
+      static time_t esdm_start = 0;
+      struct timeval tv;
+      gettimeofday(& tv, NULL);
+      
+      esdm_active = 0;
+      if(esdm_start == 0){
+        esdm_start = tv.tv_sec;
+      }else{
+        esdm_active = tv.tv_sec - esdm_start > atoi(getenv("ESDM_IGNORE_TIMER"));
+      }      
+      printf("ESDM IGNORE TIMER, ESDM: %s\n", esdm_active ? "ACTIVE" : "WAITING");
+    }
+    int strl = strlen(path);
+    // ignore NC_MPIIO mode, allows native support for paraview
+    int ends_with = 0;
+    if(esdm_active){  
+      ends_with = strcasecmp(path+strl-5, ":esdm") == 0;
+    }
+    if(strncasecmp(path, "esdm:/", 6) == 0 || ends_with) {
+       if(ends_with){
+         // remove joined prefixes of current working environment
+         char cwd[PATH_MAX];
+         getcwd(cwd, sizeof(cwd));
+         char * p = path;
+         char * c = cwd;
+         printf("Attempting %s : %s\n", p, c);
+         while(p[0] == c[0]){
+           c++;
+           p++;
+         }
+         *newpathp = strdup(p);
+         (*newpathp)[strlen(p) - 5] = 0;
+       }
        model->impl = NC_FORMATX_ESDM;
-            model->format = NC_FORMATX_ESDM;
+       model->format = NC_FORMATX_ESDM;
        goto done;
     }
 
