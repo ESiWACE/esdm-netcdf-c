@@ -38,10 +38,17 @@
 
 /* default bytes of memory we are willing to allocate for variable
  * values during copy */
-#define COPY_BUFFER_SIZE (5000000)
+#undef CHUNK_CACHE_NELEMS
+#undef CHUNK_CACHE_SIZE
+#define CHUNK_CACHE_SIZE 104857600
+#define CHUNK_CACHE_NELEMS 10000
+#define xstr(x) pstr(x)
+#define pstr(x) #x
+
+#define COPY_BUFFER_SIZE 104857600
 #define COPY_CHUNKCACHE_PREEMPTION (1.0f) /* for copying, can eject fully read chunks */
 #define SAME_AS_INPUT (-1)	/* default, if kind not specified */
-#define CHUNK_THRESHOLD (8192)	/* non-record variables with fewer bytes don't get chunked */
+#define CHUNK_THRESHOLD 8192000	/* non-record variables with fewer bytes don't get chunked */
 
 #ifndef USE_NETCDF4
 #define NC_CLASSIC_MODEL 0x0100 /* Enforce classic model if netCDF-4 not available. */
@@ -2209,9 +2216,9 @@ usage(void)
   [-V var1,...] include definitions and data for only listed variables\n\
   [-g grp1,...] include data for only variables in listed groups, but all definitions\n\
   [-G grp1,...] include definitions and data only for variables in listed groups\n\
-  [-m n]    set size in bytes of copy buffer, default is 5000000 bytes\n\
-  [-h n]    set size in bytes of chunk_cache for chunked variables\n\
-  [-e n]    set number of elements that chunk_cache can hold\n\
+  [-m n]    set size in bytes of copy buffer, default: " xstr(COPY_BUFFER_SIZE) "\n\
+  [-h n]    set size in bytes of chunk_cache for chunked variables, default: " xstr(CHUNK_CACHE_SIZE) "\n\
+  [-e n]    set number of elements that chunk_cache can hold, default: " xstr(CHUNK_CACHE_NELEMS) "\n\
   [-r]      read whole input file into diskless file on open (classic or 64-bit offset or cdf5 formats only)\n\
   [-F filterspec] specify a compression algorithm to apply to an output variable (may be repeated).\n\
   [-Ln]     set log level to n (>= 0); ignored if logging isn't enabled.\n\
